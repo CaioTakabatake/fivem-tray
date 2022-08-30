@@ -1,13 +1,15 @@
-import Store from 'electron-store';
+const Store = require('electron-store');
 
-export default class Servers {
-    store = new Store();
+module.exports = {
+    store: new Store(),
 
     getAllServers() {
         const servers = this.store.get('dataServers');
-    }
+        if (!servers) return [];
+        return servers;
+    },
 
     update(servers) {
         this.store.set('dataServers', servers);
-    }
-}
+    },
+};

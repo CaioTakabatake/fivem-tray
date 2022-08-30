@@ -1,15 +1,16 @@
 {
   "name": "fivem-tray",
   "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
+  "main": "main.js",
+  "type": "commonjs",
   "scripts": {
     "start": "electron ."
   },
   "repository": "https://github.com/CaioTakabatake/fivem-tray.git",
   "license": "MIT",
   "dependencies": {
-    "electron-store": "^8.1.0"
+    "electron-store": "^8.1.0",
+    "node-powershell": "^5.0.1"
   },
   "devDependencies": {
     "electron": "^20.1.0",
