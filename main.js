@@ -1,4 +1,4 @@
-const { app, Tray, Menu, Notification } = require('electron');
+const { app, Tray, Menu, Notification, BrowserWindow, ipcMain } = require('electron');
 const { resolve } = require('path');
 const { PowerShell } = require('node-powershell');
 const servers = require('./servers.js');
@@ -47,7 +47,13 @@ const render = async (tray) => {
             label: 'Add Server',
             type: 'normal',
             click: async () => {
-                console.log('ADD SERVER');
+                if (!addServer) {
+                    addServer = new BrowserWindow({ width: 400, height: 500, frame: false, resizable: false, webPreferences: { nodeIntegration: true, contextIsolation: false } });
+                    addServer.loadFile('window/add-server/index.html');
+                    addServer.on('closed', () => {
+                        addServer = '';
+                    });
+                }
             },
         },
         {
@@ -82,3 +88,9 @@ app.on('ready', () => {
 });
 
 app.on('window-all-closed', () => {});
+
+ipcMain.on('update-add-server', (evt, server) => {
+    new Notification({ title: 'SERVIDOR ADICIONADO', body: `O SERVIDOR ${server} FOI CRIADO!`, icon: resolve(__dirname, 'assets', 'notification.png') }).show();
+
+    render(tray);
+});

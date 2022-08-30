@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <title>Add Server</title>
+</head>
+<body>
+    <form class="my-form">
+        <div class="container">
+            <h1>Add Server!</h1>
+            <ul>
+                <li>
+                    <div class="grid grid-2">
+                        <input type="text" id="name" placeholder="Name" required />
+                    </div>
+                </li>
+                <li>
+                    <div class="grid grid-2">
+                        <input type="text" id="ip" placeholder="IP" required />
+                    </div>
+                </li>
+                <li>
+                    <div class="grid grid-3">
+                        <div class="required-msg">REQUIRED FIELDS</div>
+                        <button class="btn-grid" type="submit">
+                            <span class="back">
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+                            </span>
+                            <span class="front">SUBMIT</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
