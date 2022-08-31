@@ -10,7 +10,6 @@ const render = async (tray) => {
     const allServers = servers.getAllServers();
 
     allServers.map((server, id) => {
-        console.log(server);
         serverList.push({
             label: server.name,
             type: 'submenu',
@@ -54,13 +53,6 @@ const render = async (tray) => {
                         addServer = '';
                     });
                 }
-            },
-        },
-        {
-            label: 'Open Menu',
-            type: 'normal',
-            click: async () => {
-                console.log('OPEN MENU');
             },
         },
         {
